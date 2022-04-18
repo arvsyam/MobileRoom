@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/noActStatus"
+        android:title="SELECT"/>
+    <item
+        android:id="@+id/singleInput"
+        android:title="Single" />
+    <item
+        android:id="@+id/marriedInput"
+        android:title="Married" />
+
+</menu>

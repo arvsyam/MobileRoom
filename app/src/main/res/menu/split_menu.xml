@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/noAct"
+        android:title="SELECT"/>
+    <item
+        android:id="@+id/femaleInput"
+        android:title="Female" />
+    <item
+        android:id="@+id/maleInput"
+        android:title="Male" />
+
+</menu>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MobileRoom</string>
+
+    <string-array name="gender_array">
+        <item>Select Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+   <string-array name="status_array">
+       <item>Select Status</item>
+       <item>Single</item>
+       <item>Married</item>
+   </string-array>
+</resources>
