@@ -19,7 +19,9 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class CreateUser : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class CreateUser : AppCompatActivity()
+//    , AdapterView.OnItemSelectedListener
+{
 
     lateinit var useradapter: UserAdapter
     var gen:String? ="-"
@@ -64,24 +66,24 @@ class CreateUser : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     fun initComponent(){
 
-        ArrayAdapter.createFromResource(this,
-            R.array.gender_array,
-            android.R.layout.simple_spinner_item)
-            .also{adapter ->
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                menuGen.adapter = adapter
-            }
-        ArrayAdapter.createFromResource(this,
-            R.array.status_array,
-            android.R.layout.simple_spinner_item)
-            .also{adapter ->
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                menuStats.adapter = adapter
-            }
-
-
-        menuGen.onItemSelectedListener = this
-        menuStats.onItemSelectedListener = this
+//        ArrayAdapter.createFromResource(this,
+//            R.array.gender_array,
+//            android.R.layout.simple_spinner_item)
+//            .also{adapter ->
+//                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//                menuGen.adapter = adapter
+//            }
+//        ArrayAdapter.createFromResource(this,
+//            R.array.status_array,
+//            android.R.layout.simple_spinner_item)
+//            .also{adapter ->
+//                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//                menuStats.adapter = adapter
+//            }
+//
+//
+//        menuGen.onItemSelectedListener = this
+//        menuStats.onItemSelectedListener = this
 
 
 
@@ -168,24 +170,24 @@ class CreateUser : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
 
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-
-        if (menuGen.getItemIdAtPosition(p2).toInt() == R.id.menuGen){
-            gen = " - "
-            stats = " - "
-        }else{
-            gen = menuGen.getItemAtPosition(p2).toString()
-
-            stats = menuStats.getItemAtPosition(p2).toString()
-//            menuGen.setPromptId(p2)
-        }
-
-
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-
-    }
+//    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+//
+//        if (menuGen.getItemIdAtPosition(p2).toInt() == R.id.menuGen){
+//            gen = " - "
+//            stats = " - "
+//        }else{
+//            gen = menuGen.getItemAtPosition(p2).toString()
+//
+//            stats = menuStats.getItemAtPosition(p2).toString()
+////            menuGen.setPromptId(p2)
+//        }
+//
+//
+//    }
+//
+//    override fun onNothingSelected(p0: AdapterView<*>?) {
+//
+//    }
 
 
 }
