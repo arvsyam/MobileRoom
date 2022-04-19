@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.adl.mobileroom.dao.UserDao
 import com.adl.mobileroom.model.User
 
-@Database(entities = [User::class], version = 1)
+    @Database(entities = [User::class], version = 1)
 abstract class UserDatabases: RoomDatabase() {
     abstract fun userDao(): UserDao
 

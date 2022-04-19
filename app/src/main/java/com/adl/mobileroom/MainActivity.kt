@@ -32,13 +32,15 @@ class MainActivity : AppCompatActivity() {
 
         GlobalScope.launch {
             lstUser.addAll(ArrayList(getAllData()))
+            countUser.setText("${lstUser.size} Users")
         }
-        countUser.setText("${lstUser.size}")
+
         userAdapter = UserAdapter(lstUser)
         rcUser.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = userAdapter
         }
+
 
     }
 
@@ -83,7 +85,9 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch {
             lstUser.clear()
             lstUser.addAll(ArrayList(getAllData()))
+            countUser.setText("${lstUser.size} Users")
         }
+
         userAdapter = UserAdapter(lstUser)
         rcUser.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)

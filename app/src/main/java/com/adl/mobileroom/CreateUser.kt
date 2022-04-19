@@ -19,9 +19,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class CreateUser : AppCompatActivity()
-//    , AdapterView.OnItemSelectedListener
-{
+class CreateUser : AppCompatActivity() {
 
     lateinit var useradapter: UserAdapter
     var gen:String? ="-"
@@ -39,18 +37,26 @@ class CreateUser : AppCompatActivity()
         gen = user?.gender
         et_umur.setText(user?.age)
         stats = user?.status
+
+        if(user != null){
+            menuGen.setSelection(user?.gender.toInt())
+            menuStats.setSelection(user?.status.toInt())
+        }
         initComponent()
+
+
 
         btn_add.setOnClickListener({
             if(user != null){
-                val data = User(user?.id,et_nama.text.toString(),gen.toString(), et_umur.text.toString(),stats.toString())
+
+                val data = User(user?.id,et_nama.text.toString(), menuGen.selectedItemPosition.toString(), et_umur.text.toString(),menuStats.selectedItemPosition.toString())
                 GlobalScope.launch {
                     updateDataUser(data)
                 }
                 Toast.makeText(this,"data Updated",Toast.LENGTH_SHORT).show()
             }else{
 
-                val data = User(user?.id,et_nama.text.toString(),gen.toString(), et_umur.text.toString(),stats.toString())
+                val data = User(user?.id,et_nama.text.toString(),menuGen.selectedItemPosition.toString(), et_umur.text.toString(),menuStats.selectedItemPosition.toString())
                 GlobalScope.launch {
                     saveDataUser(data)
                 }
@@ -65,28 +71,6 @@ class CreateUser : AppCompatActivity()
     }
 
     fun initComponent(){
-
-//        ArrayAdapter.createFromResource(this,
-//            R.array.gender_array,
-//            android.R.layout.simple_spinner_item)
-//            .also{adapter ->
-//                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//                menuGen.adapter = adapter
-//            }
-//        ArrayAdapter.createFromResource(this,
-//            R.array.status_array,
-//            android.R.layout.simple_spinner_item)
-//            .also{adapter ->
-//                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//                menuStats.adapter = adapter
-//            }
-//
-//
-//        menuGen.onItemSelectedListener = this
-//        menuStats.onItemSelectedListener = this
-
-
-
 
         splitBtn.setTextColor(R.color.black)
         splitBtn.setIconColor(android.R.color.white)
@@ -148,10 +132,8 @@ class CreateUser : AppCompatActivity()
     }
 
     fun updateDataUser(editUser:User){
-
         UserDatabases.getInstance(this@CreateUser).userDao().updateUser(editUser)
         finish()
-//        navigateUpTo(Intent(this,MainActivity::class.java))
     }
 
     fun saveDataUser(newUser:User){
@@ -168,26 +150,6 @@ class CreateUser : AppCompatActivity()
         return UserDatabases.getInstance(this@CreateUser).userDao().getUser()
 
     }
-
-
-//    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-//
-//        if (menuGen.getItemIdAtPosition(p2).toInt() == R.id.menuGen){
-//            gen = " - "
-//            stats = " - "
-//        }else{
-//            gen = menuGen.getItemAtPosition(p2).toString()
-//
-//            stats = menuStats.getItemAtPosition(p2).toString()
-////            menuGen.setPromptId(p2)
-//        }
-//
-//
-//    }
-//
-//    override fun onNothingSelected(p0: AdapterView<*>?) {
-//
-//    }
 
 
 }
